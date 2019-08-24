@@ -30,4 +30,4 @@ head(auto_custom_head, 4)
 #######################################
 # NA = Not Available
 #######################################
-as.stepfun()
+as.character()

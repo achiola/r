@@ -24,3 +24,21 @@ ggplot(APPL, aes(Date, Close)) +
                      values = c("gray", "yellow","blue", "red")) +
   ggtitle("Comparaciones de cierre de stocks") +
   theme(plot.title = element_text(lineheight = 0.7, face = "bold"))
+
+
+
+### 102. Datos en tiempo real con quantmod
+install.packages("quantmod")
+
+library(quantmod)
+
+#Cargar datos en tiempo real
+getSymbols("AAPL")
+barChart(AAPL)
+chartSeries(AAPL, TA = NULL)
+chartSeries(AAPL[,4], TA = "addMACD()")
+
+getSymbols("NFLX")
+barChart(NFLX)
+chartSeries(NFLX, TA = NULL)
+chartSeries(NFLX[,4], TA = "addMACD()")

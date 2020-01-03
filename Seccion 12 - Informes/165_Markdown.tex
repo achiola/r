@@ -1,0 +1,299 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={165\_Markdown},
+  pdfauthor={achiola},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\newif\ifbibliography
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{165\_Markdown}
+\author{achiola}
+\date{2/1/2020}
+
+\begin{document}
+\frame{\titlepage}
+
+\hypertarget{principiantes}{%
+\section{Principiantes}\label{principiantes}}
+
+\begin{frame}
+
+Delimitado por linea
+
+\textbf{negrita}
+
+En cursiva con html
+
+\end{frame}
+
+\begin{frame}
+
+\#HTML contents
+
+Esto es un parrafo en HTML
+
+Ventajas
+
+Inconvenientes
+
+V1
+
+I1
+
+V2
+
+I2
+
+V3
+
+I3
+
+\end{frame}
+
+\hypertarget{embed-code}{%
+\section{Embed Code}\label{embed-code}}
+
+\begin{frame}{Set working directory}
+\protect\hypertarget{set-working-directory}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Se puede definir cualquier codigo en \emph{R} haciendo uso de los tre
+  comillas simples.
+\item
+  El parametro echo=FALSE, indica que el codigo no se mostra en el
+  documento.
+\item
+  Se puede establecer el directorio de trabajo, estableciendo root.dir
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Loading data}
+\protect\hypertarget{loading-data}{}
+
+\begin{block}{Muestra de los datos (n primeros)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \KeywordTok{head}\NormalTok{(auto)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   No mpg cylinders displacement horsepower weight acceleration model_year            car_name
+## 1  1  28         4          140         90   2264         15.5         71 chevrolet vega 2300
+## 2  2  19         3           70         97   2330         13.5         72     mazda rx2 coupe
+## 3  3  36         4          107         75   2205         14.5         82        honda accord
+## 4  4  28         4           97         92   2288         17.0         72     datsun 510 (sw)
+## 5  5  21         6          199         90   2648         15.0         70         amc gremlin
+## 6  6  23         4          115         95   2694         15.0         75          audi 100ls
+\end{verbatim}
+
+\end{block}
+
+\begin{block}{Estructura del df}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \KeywordTok{str}\NormalTok{(auto)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    398 obs. of  9 variables:
+##  $ No          : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ mpg         : num  28 19 36 28 21 23 15.5 32.9 16 13 ...
+##  $ cylinders   : int  4 3 4 4 6 4 8 4 6 8 ...
+##  $ displacement: num  140 70 107 97 199 115 304 119 250 318 ...
+##  $ horsepower  : int  90 97 75 92 90 95 120 100 105 150 ...
+##  $ weight      : int  2264 2330 2205 2288 2648 2694 3962 2615 3897 3755 ...
+##  $ acceleration: num  15.5 13.5 14.5 17 15 15 13.9 14.8 18.5 14 ...
+##  $ model_year  : int  71 72 82 72 70 75 76 81 75 76 ...
+##  $ car_name    : Factor w/ 305 levels "amc ambassador brougham",..: 66 184 165 86 8 18 11 79 42 112 ...
+\end{verbatim}
+
+\end{block}
+
+\begin{block}{resumen (summary)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \KeywordTok{summary}\NormalTok{(auto)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        No             mpg          cylinders      displacement     horsepower        weight    
+##  Min.   :  1.0   Min.   : 9.00   Min.   :3.000   Min.   : 68.0   Min.   : 46.0   Min.   :1613  
+##  1st Qu.:100.2   1st Qu.:17.50   1st Qu.:4.000   1st Qu.:104.2   1st Qu.: 76.0   1st Qu.:2224  
+##  Median :199.5   Median :23.00   Median :4.000   Median :148.5   Median : 92.0   Median :2804  
+##  Mean   :199.5   Mean   :23.51   Mean   :5.455   Mean   :193.4   Mean   :104.1   Mean   :2970  
+##  3rd Qu.:298.8   3rd Qu.:29.00   3rd Qu.:8.000   3rd Qu.:262.0   3rd Qu.:125.0   3rd Qu.:3608  
+##  Max.   :398.0   Max.   :46.60   Max.   :8.000   Max.   :455.0   Max.   :230.0   Max.   :5140  
+##                                                                                                
+##   acceleration     model_year              car_name  
+##  Min.   : 8.00   Min.   :70.00   ford pinto    :  6  
+##  1st Qu.:13.82   1st Qu.:73.00   amc matador   :  5  
+##  Median :15.50   Median :76.00   ford maverick :  5  
+##  Mean   :15.57   Mean   :76.01   toyota corolla:  5  
+##  3rd Qu.:17.18   3rd Qu.:79.00   amc gremlin   :  4  
+##  Max.   :24.80   Max.   :82.00   amc hornet    :  4  
+##                                  (Other)       :369
+\end{verbatim}
+
+\end{block}
+
+\begin{block}{Plot}
+
+\includegraphics{165_Markdown_files/figure-beamer/disperssion-1.pdf}
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}{R inline}
+\protect\hypertarget{r-inline}{}
+
+Hemos hecho uso de un data frame de coches, que contiene \textbf{398}
+muestras de coches y cada uno de ellos tiene \textbf{9} variables.
+
+Fin
+
+\end{frame}
+
+\end{document}

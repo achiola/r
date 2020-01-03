@@ -1,0 +1,36 @@
+---
+title: "Generacion dinamica de reportes"
+author: "achiola"
+date: "3/1/2020"
+output:
+  pdf_document: default
+  html_document: default
+params:
+  n: NA
+---
+
+```{r}
+auto <- read.csv("../auto-mpg.csv")
+str(auto)
+```
+
+```{r}
+plot(as.formula(paste("mpg~", params$n)), data = auto)
+```
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## un ejemplo con latex
+\[\int_0^\infty \frac{1}{x^2} dx \]
+
+
+```{r}
+x = rnorm(100)
+x
+```
+
+El promedio en estadistica se define como \(\overline{x} = \sum_{i=1}^N \frac{x_i}{N}\) = `r mean(x)`

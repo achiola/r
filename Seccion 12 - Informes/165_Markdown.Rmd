@@ -1,0 +1,111 @@
+---
+title: "165_Markdown"
+author: "achiola"
+date: "2/1/2020"
+output:
+  html_document:
+    theme: cosmo
+    toc: yes
+  pdf_document:
+    toc: yes
+---
+```{r}
+library(htmlTable)
+library(knitr)
+library(kableExtra)
+```
+
+
+# Principiantes
+
+* * * 
+Delimitado por linea
+
+**negrita**
+
+<i>En cursiva con html</i>
+
+<!-- Esto es un comentario y no sale -->
+
+* * * 
+
+#HTML contents
+<p>Esto es un parrafo en HTML</p>
+<table border=1>
+  <th>Ventajas</th>
+  <th>Inconvenientes</th>
+  <tr><td>V1</td><td>I1</td></tr>
+  <tr><td>V2</td><td>I2</td></tr>
+  <tr><td>V3</td><td>I3</td></tr>
+</table>
+
+# Embed Code
+## Set working directory
+
+* Se puede definir cualquier codigo en *R* haciendo uso de los tre comillas simples.
+* El parametro echo=FALSE, indica que el codigo no se mostra en el documento.
+* Se puede establecer el directorio de trabajo, estableciendo root.dir
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T)
+knitr::opts_chunk$set(cache = F)
+knitr::opts_chunk$set(root.dir = "Seccion 12 - Informes/")
+```
+
+* * * 
+
+
+## Loading data
+```{r loadingData, echo=F}
+  auto <- read.csv("auto-mpg.csv")
+```
+### Muestra de los datos (n primeros)
+```{r}
+  head(auto)
+```
+### Muestra de los datos (n primeros) pero formateado con htmlTable
+```{r}
+  htmlTable(head(auto),
+            caption="head de DF de autos",
+            tfoot="&dagger; Esto es un comentario de la tabla",
+            col.rgroup = c("none","#F7F7F7"),
+            col.columns = c("none", rep("#F55555",7),"#5555F5"))
+```
+### Muestra de los datos (n primeros) pero formateada con kable 
+## float_right
+```{r}
+  kable(head(auto), format="html") %>%
+    kable_styling(bootstrap_options = c("striped", 
+                                        "hover",
+                                        "condensed")
+                  ,full_width = F
+                  ,position = "right") %>%
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(9, width = "2em", background = "gray") %>%
+  row_spec(3:5, bold = T, color = "white", background = "#f82615") %>%
+  row_spec(0, angle = -45)
+```
+### Estructura del df
+```{r}
+  str(auto)
+```
+### resumen (summary)
+```{r}
+  summary(auto)
+```
+
+### Plot
+```{r disperssion, echo=F, fig.height=4, fig.width=6}
+  plot(auto$mpg~auto$weight)
+```
+
+## R inline
+Hemos hecho uso de un data frame de coches, que contiene **`r nrow(auto)`** muestras de coches y cada uno de ellos tiene **`r ncol(auto)`** variables.
+
+
+rmarkdown::render("Seccion 12 - Informes/165_Markdown.Rmd", "beamer_presentation")
+
+rmarkdown::render("Seccion 12 - Informes/165_Markdown.Rmd", "ioslides_presentation")
+
+Fin

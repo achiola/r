@@ -1,0 +1,12 @@
+library(maps)
+
+map("world")
+map("world", interior = F)
+map("world", fill = T, col = palette(rainbow(256)))
+map("world","tanzania")
+map("world","argentina")
+map("france")
+map("usa")
+map("state")
+map("county", fill = T, col = palette(rainbow(256)))
+map("county", "new jersey",fill = T, col = palette(rainbow(256)))
